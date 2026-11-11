@@ -7,9 +7,14 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
+import nest_asyncio
 
 from backend import run_travel_agent
 
+
+
+# This is to allow nested event loops for async calls in FastAPI
+nest_asyncio.apply()
 
 
 BASE_DIR = Path(__file__).resolve().parent
